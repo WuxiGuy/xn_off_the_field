@@ -5,7 +5,5 @@ urlpatterns = [
     path('team/', teamPage, name="Team"),
     path('training/', trainingPage, name="Challenge"),
     path('challenge/', challengePage, name="Challenge"),
-    path('')
-
-    path('create_note/', createNote, name="note")
+    path('mypage/', myPage, name="My page")
 ]
