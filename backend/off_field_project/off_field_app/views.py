@@ -5,37 +5,34 @@ from django.http import HttpResponse
 '''
 classes that used in urls.py by getting request when a url is called.
 Return the information that needs to be shown to client.
-type of HTTTP request(GET, POST, PUT, DELETE)
+type of HTTTP request(GET, POST, PUT, DELETE, etc.)
 The class below is an example for "My page"
+
+Get Put Post Delete
 '''
+
+@api_view() # put type of request(GET, POST, PUT, DELETE, etc.) between parenthese
+def homeStart(request):
+    # select "I am a coach" or "I am an athelete"
+    # jump to mypage/signin after selection
+
+@api_view() # put type of request(GET, POST, PUT, DELETE, etc.) between parenthese
+def reviseTeam(request):
+    # delete or add team
+
+@api_view() # put type of request(GET, POST, PUT, DELETE, etc.) between parenthese
+def challengeInfo(request):
+    # display challenges
+
 @api_view(['GET', 'PUT'])
 def updatePlayerProfile(request):
-    '''
-    GET list of player information, PUT new information.
-    '''
-    if request.method == 'PUT': 
-        playerNmae = request.POST.get('userName');
-        desiredSkill = request.POST.get('title');
-        seasonStartDate = request.POST.get('seasonStartDate') ;
-        seasonEndDate = request.POST.get('seasonEndDate');
-        playerAge = request.POST.get('playerAge');
-        trainingExperience = request.POST.get('trainingExperience');
-        chooseTrainingLevel = request.POST.get('chooseTrainingLevel');
-        chooseTrainingDays = request.POST.get('chooseTrainingDays');
-        Note.objects.create(
-            '''
-            Registered Positions:
-            Registered Sports:
-            ...
-            '''
-        )
-    return HttpResponse({"status": 'xxxx'}) 
+    # display user's information which can also be revised
+    return HttpResponse() 
 
 @api_view(['POST'])
 def profileSignUp(request, pk):
     # create an account and saving user id and password
     # by pk(primary key).
-
 
 @api_view(['GET'])
 def profileSignIn(request, pk):
